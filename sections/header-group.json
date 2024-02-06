@@ -35,11 +35,11 @@
             "title_menu_card": "<p>Besoins d’aide pour choisirles bons produits?<\/p>",
             "image_menu_card": "shopify:\/\/shop_images\/noun-quizz-4460560_1.svg",
             "text_menu_card": "<p>Passez notre test et découvrez quels produit est fait pour vous<\/p>",
-            "text_button_menu_card": "Passez notre test et découvrez quels produit est fait pour vous",
+            "text_button_menu_card": "En savoir plus",
             "button_menu_card_link": "shopify:\/\/pages\/quizz-cbd",
-            "bg_color_menu_card": "#006D18",
-            "text_color_menu_card": "#fff",
-            "button_menu_card_color_scheme": "scheme-1"
+            "bg_color_menu_card": "#006d18",
+            "text_color_menu_card": "#ffffff",
+            "button_menu_card_color_scheme": "scheme-3"
           }
         }
       },
