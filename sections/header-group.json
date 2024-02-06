@@ -32,7 +32,7 @@
         "menu_card_HAdkMm": {
           "type": "menu_card",
           "settings": {
-            "title_menu_card": "<p>Besoins d’aide pour choisirles bons produits?<\/p>",
+            "title_menu_card": "<p><strong>Besoins d’aide pour choisirles bons produits?<\/strong><\/p>",
             "image_menu_card": "shopify:\/\/shop_images\/noun-quizz-4460560_1.svg",
             "text_menu_card": "<p>Passez notre test et découvrez quels produit est fait pour vous<\/p>",
             "text_button_menu_card": "En savoir plus",
