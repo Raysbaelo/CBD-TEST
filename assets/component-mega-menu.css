@@ -3,6 +3,8 @@
 }
 
 .mega-menu__content {
+  display: flex;
+  justify-content: center;
   background-color: rgb(var(--color-background));
   border-left: 0;
   border-radius: 0;
@@ -36,12 +38,17 @@
 
 .mega-menu__list {
   display: grid;
+  width: 100%;
   gap: 1.8rem 4rem;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(calc(100% / 4), 1fr));;
   list-style: none;
+  margin: 0;
 }
 
 .mega-menu__link {
+  display: flex !important;
+  align-items: center;
+  gap: 8px;
   color: rgba(var(--color-foreground), 0.75);
   display: block;
   line-height: calc(1 + 0.3 / var(--font-body-scale));
@@ -84,4 +91,24 @@
 
 .mega-menu__list--condensed .mega-menu__link {
   font-weight: normal;
+}
+
+.menu_card{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  gap: 5px;
+  padding: 30px 12px;
+}
+
+.menu_card img {
+  width: 110px;
+  height: 110px;
+}
+
+.menu_card p{
+  word-break: break-word;
+  text-align: center;
 }

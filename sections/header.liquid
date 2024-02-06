@@ -15,9 +15,6 @@
   {{ 'component-cart-drawer.css' | asset_url | stylesheet_tag }}
   {{ 'component-cart.css' | asset_url | stylesheet_tag }}
   {{ 'component-totals.css' | asset_url | stylesheet_tag }}
-
-
-  
   {{ 'component-price.css' | asset_url | stylesheet_tag }}
   {{ 'component-discounts.css' | asset_url | stylesheet_tag }}
 {%- endif -%}
@@ -67,11 +64,26 @@
     padding-right: 2.7rem;
   }
 
-  .list-menu__item {
+  .list-menu__item:not(.grandchildlink__menu-item) {
     display: flex;
+    justify-content: space-between;
+    gap: 5px;
     align-items: center;
     line-height: calc(1 + 0.3 / var(--font-body-scale));
   }
+  .grandchildlink__menu-item{
+    display: flex !important;
+    align-items: center;
+    gap: 8px;
+  }
+
+ .header_menu_item_drawer{
+  text-decoration: ;
+ }
+
+ .link--text_drawer:last-child{
+  border-top: 1px solid black;
+ }
 
   .list-menu__item--link {
     text-decoration: none;
@@ -86,7 +98,18 @@
       padding-top: 0.5rem;
     }
   }
+  {% for block in section.blocks %}
+    .menu_card_color {
+      background: {{ block.settings.bg_color_menu_card }};
+  }
+    .menu_card p{
+      color: {{ block.settings.text_color_menu_card }};
+ }
+
+  {% endfor %}
 </style>
+
+  
 
 {%- style -%}
   .header {
@@ -116,6 +139,7 @@
 <script src="{{ 'details-modal.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'search-form.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'show-more.js' | asset_url }}" defer="defer"></script>
 {%- if settings.cart_type == "drawer" -%}
   <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}
@@ -312,12 +336,11 @@
           </span>
         </a>
       {%- endif -%}
-
       {%- for block in section.blocks -%}
         {%- case block.type -%}
           {%- when '@app' -%}
-            {% render block %}
         {%- endcase -%}
+
       {%- endfor -%}
 
       <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
@@ -505,6 +528,16 @@
   "max_blocks": 3,
   "settings": [
     {
+      "type": "header",
+      "content": "AB TEST settings (Juste un exemple pour le test)"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_menu_a",
+      "default": true,
+      "label": "Show menu A / B"
+    },
+    {
       "type": "select",
       "id": "logo_position",
       "options": [
@@ -681,9 +714,99 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Nombre de lien afficher Mega menu"
+    },
+    {
+      "type": "range",
+      "id": "item_to_show",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "label": "Nombre de lien affiché sur le menu desktop",
+      "default": 2
+    },
+    {
+      "type": "header",
+      "content": "Lien voir tout (Mega menu)"
+    },
+    {
+      "type": "richtext",
+      "id": "see_all_text",
+      "default": "<p>Voir tout</p>",
+      "label": "Voir tout text",
+      "info":"Si le champ est vide, alors il ne s'affichera pas" 
+    },
+    {
+      "type": "url",
+      "id": "see_all_link",
+      "label": "Link see all"
     }
   ],
   "blocks": [
+    {
+      "type": "menu_card",
+      "name": "menu_card",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "title_menu_card",
+          "default": "<p>Besoins d’aide pour choisirles bons produits?</p>",
+          "label": "Heading menu card"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_menu_card",
+          "label": "Image menu card"
+        },
+        {
+          "type": "richtext",
+          "id": "text_menu_card",
+          "default": "<p>Passez notre test et découvrez quels produit est fait pour vous</p>",
+          "label": "Text menu card"
+        },
+        {
+        "type": "header",
+        "content": "Button"
+        },
+        {
+          "type": "text",
+          "id": "text_button_menu_card",
+          "default": "Passez notre test et découvrez quels produit est fait pour vous",
+          "label": "Button text"
+        },
+        {
+          "type": "url",
+          "id": "button_menu_card_link",
+          "label": "Button link"
+        },
+        {
+        "type": "header",
+        "content": "Colors"
+        },
+        {
+          "type": "color",
+          "id": "bg_color_menu_card",
+          "label": "Card color",
+          "default": "#006D18"
+        },
+        {
+          "type": "color",
+          "id": "text_color_menu_card",
+          "label": "Card text color",
+          "default": "#006D18"
+        },
+        {
+          "type": "color_scheme",
+          "id": "button_menu_card_color_scheme",
+          "label": "Button color",
+          "default": "scheme-1"
+        }
+      ]
+    },
     {
       "type": "@app"
     }
