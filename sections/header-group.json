@@ -41,10 +41,20 @@
             "text_color_menu_card": "#ffffff",
             "button_menu_card_color_scheme": "scheme-3"
           }
+        },
+        "button_link_mobile_menu_e7dT4X": {
+          "type": "button_link_mobile_menu",
+          "settings": {
+            "svg_button_link_mobile": "shopify:\/\/shop_images\/Component_1_2.svg",
+            "text_button_link_mobile": "En savoir plus",
+            "link_button_link_mobile": "shopify:\/\/collections",
+            "button_link_color_scheme_mobile": "scheme-1"
+          }
         }
       },
       "block_order": [
-        "menu_card_HAdkMm"
+        "menu_card_HAdkMm",
+        "button_link_mobile_menu_e7dT4X"
       ],
       "settings": {
         "show_menu_a": false,
