@@ -28,7 +28,26 @@
     },
     "header": {
       "type": "header",
+      "blocks": {
+        "menu_card_HAdkMm": {
+          "type": "menu_card",
+          "settings": {
+            "title_menu_card": "<p><strong>Besoins d’aide pour choisirles bons produits?<\/strong><\/p>",
+            "image_menu_card": "shopify:\/\/shop_images\/noun-quizz-4460560_1.svg",
+            "text_menu_card": "<p>Passez notre test et découvrez quels produit est fait pour vous<\/p>",
+            "text_button_menu_card": "En savoir plus",
+            "button_menu_card_link": "shopify:\/\/pages\/quizz-cbd",
+            "bg_color_menu_card": "#006d18",
+            "text_color_menu_card": "#ffffff",
+            "button_menu_card_color_scheme": "scheme-3"
+          }
+        }
+      },
+      "block_order": [
+        "menu_card_HAdkMm"
+      ],
       "settings": {
+        "show_menu_a": false,
         "logo_position": "middle-left",
         "menu": "main-menu",
         "menu_type_desktop": "mega",
@@ -41,7 +60,10 @@
         "mobile_logo_position": "center",
         "margin_bottom": 0,
         "padding_top": 20,
-        "padding_bottom": 20
+        "padding_bottom": 20,
+        "item_to_show": 2,
+        "see_all_text": "<p>Voir tout<\/p>",
+        "see_all_link": ""
       }
     }
   },
