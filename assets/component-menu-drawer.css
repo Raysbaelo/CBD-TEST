@@ -270,3 +270,14 @@ details[open].menu-opening > .menu-drawer__submenu {
     transition: none !important;
   }
 }
+
+.item_button_link_drawer_container{
+  display: flex;
+  padding: 20px 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.button_menu_card.button_drawer_link_mobile{
+  width: 100%; 
+}

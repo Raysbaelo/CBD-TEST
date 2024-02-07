@@ -28,7 +28,7 @@
               {% if section.settings.show_menu_a != true %}
                 <div
                   id="MegaMenu-Content-{{ forloop.index }}"
-                  class="mega-menu__content color-{{ section.settings.menu_color_scheme }} gradient motion-reduce global-settings-popup"
+                  class="mega-menu__content color-{{ section.settings.menu_color_scheme }} gradient motion-reduce global-settings-popup mega-menu__content-a"
                   tabindex="-1"
                 >
                 <ul
@@ -71,7 +71,7 @@
                               </li>
                             {% endfor %}
                             {% if childlink.links.size <= 2 and section.settings.see_all_text != blank %}
-                              <li><a href="{{ section.settings.see_all_text }}" class="voir-tout link">{{ section.settings.see_all_text }}</a></li>
+                              <li><a href="{{ section.settings.see_all_link }}" class="voir-tout link">{{ section.settings.see_all_text }}</a></li>
                             {% elsif childlink.links.size > 2 %}
                               <li class="grandChild hidden">
                                 {% for grandchildlink in childlink.links offset: 2 %}
@@ -119,33 +119,11 @@
                         {% endcase %}  
                     {% endfor %}
                   </ul>
-                  <script>
-                    document.querySelectorAll('.voir-plus').forEach(button => {
-                      button.addEventListener('click', () => {
-                        const parent = button.parentElement.parentElement;
-                        parent.querySelectorAll('.grandChild').forEach(element => {
-                          element.classList.toggle('hidden'); // Toggle 'hide' class instead of 'large-up-hide'
-                        });
-                        button.textContent = button.textContent === 'Voir plus' ? 'Voir moins' : 'Voir plus';
-                      });
-                    });
-
-                    document.querySelectorAll('.voir-moins').forEach(button => {
-                      button.addEventListener('click', () => {
-                        const parent = button.parentElement.parentElement;
-                        parent.querySelectorAll('.grandChild').forEach(element => {
-                          element.classList.toggle('hidden'); // Toggle 'hide' class instead of 'large-up-hide'
-                        });
-                        const voirPlusButton = parent.querySelector('.voir-plus');
-                        voirPlusButton.textContent = 'Voir plus';
-                      });
-                    });
-                  </script>
                 </div>
               {% else %}
                <div
                   id="MegaMenu-Content-{{ forloop.index }}"
-                  class="mega-menu__content color-{{ section.settings.menu_color_scheme }} gradient motion-reduce global-settings-popup"
+                  class="mega-menu__content color-{{ section.settings.menu_color_scheme }} gradient motion-reduce global-settings-popup mega-menu__content-a"
                   tabindex="-1">
                   <ul
                     class="mega-menu__list page-width{% if link.levels == 1 %} mega-menu__list--condensed{% endif %}"

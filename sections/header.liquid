@@ -44,7 +44,11 @@
       }
     }
   {%- endif -%}
-
+  {%- if section.settings.show_menu_a != true -%}
+    .header__link_menu-item{
+    border-top: 1px solid rgba(0, 0, 0, 0.37);
+    }
+  {%- endif -%}  
   .menu-drawer-container {
     display: flex;
   }
@@ -81,9 +85,6 @@
   text-decoration: ;
  }
 
- .link--text_drawer:last-child{
-  border-top: 1px solid black;
- }
 
   .list-menu__item--link {
     text-decoration: none;
@@ -478,7 +479,30 @@
     }
   }
 
+  // Voir plus voir moins Mega menu script 
   customElements.define('sticky-header', StickyHeader);
+
+   document.querySelectorAll('.voir-plus').forEach(button => {
+    button.addEventListener('click', () => {
+      const parent = button.parentElement.parentElement;
+      parent.querySelectorAll('.grandChild').forEach(element => {
+        element.classList.toggle('hidden');
+      });
+      button.textContent = button.textContent === 'Voir plus' ? 'Voir moins' : 'Voir plus';
+    });
+  });
+
+  document.querySelectorAll('.voir-moins').forEach(button => {
+    button.addEventListener('click', () => {
+      const parent = button.parentElement.parentElement;
+      parent.querySelectorAll('.grandChild').forEach(element => {
+        element.classList.toggle('hidden');
+      });
+      const voirPlusButton = parent.querySelector('.voir-plus');
+      voirPlusButton.textContent = 'Voir plus';
+    });
+  });
+
 {% endjavascript %}
 
 <script type="application/ld+json">
@@ -748,7 +772,7 @@
   "blocks": [
     {
       "type": "menu_card",
-      "name": "menu_card",
+      "name": "Menu card dekstop",
       "limit": 2,
       "settings": [
         {
@@ -802,6 +826,43 @@
         {
           "type": "color_scheme",
           "id": "button_menu_card_color_scheme",
+          "label": "Button color",
+          "default": "scheme-1"
+        }
+      ]
+    },
+     {
+      "type": "button_link_mobile_menu",
+      "name": "Button link mobile",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "svg_button_link_mobile",
+          "label": "Svg menu button link mobile"
+        },
+        {
+        "type": "header",
+        "content": "Button"
+        },
+        {
+          "type": "text",
+          "id": "text_button_link_mobile",
+          "default": "Passez notre test et découvrez quels produit est fait pour vous",
+          "label": "Button text"
+        },
+        {
+          "type": "url",
+          "id": "link_button_link_mobile",
+          "label": "Button link"
+        },
+        {
+        "type": "header",
+        "content": "Colors"
+        },
+        {
+          "type": "color_scheme",
+          "id": "button_link_color_scheme_mobile",
           "label": "Button color",
           "default": "scheme-1"
         }
